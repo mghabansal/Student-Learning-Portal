@@ -1,0 +1,104 @@
+/* Base styles: set global font, remove default margin, set background and text color, center text */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #ff7166;
+    color: #333;
+    text-align: center;
+}
+
+/* Header styling: padding around text and white font color */
+.header {
+    padding: 20px;
+    color: white;
+}
+
+/* Form elements styling: padding inside inputs/buttons, spacing above, rounded corners, no borders */
+form input,
+form button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Cards container: use flexbox to center and wrap cards, add top margin */
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Individual card styling: fixed size, centered content, spacing, rounded corners, hover transitions */
+.card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.2em;
+}
+
+/* Card hover effect: scale up and add shadow */
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Subject-specific card background colors */
+.math    { background: #ff7675; } /* Math card color */
+.english { background: #55efc4; } /* English card color */
+.science { background: #74b9ff; } /* Science card color */
+.quiz    { background: #fdcb6e; } /* Quiz card color */
+.feedback{ background: #a29bfe; } /* Feedback card color */
+
+/* Content area: padding for readability, max width for line length, center container, left-align text */
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+/* Footer styling: center text, spacing above */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* ---------- Overrides / Additional Styles ---------- */
+
+/* Override body on specific pages: different background and fallback font */
+body {
+    background-color: #4e92c4;
+    font-family: Arial, sans-serif;
+}
+
+/* Avatar image styling: small circular profile image */
+.avatar {
+    width: 60px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+/* Placeholder image styling: fixed size, dashed border, gray background and text */
+.img-placeholder {
+    width: 200px;
+    height: 150px;
+    background-color: #ddd;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    line-height: 150px;
+    color: #666;
+    font-size: 14px;
+    border: 2px dashed #999;
+}

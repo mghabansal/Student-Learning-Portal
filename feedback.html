@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- Standard HTML5 doctype -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><!-- Define character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Ensure responsive scaling -->
+  <!-- Page title -->
+  <title>Feedback – Kids Learning Portal</title>
+  <style>
+    /* Base reset & font: consistent box model and remove default spacing */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Body styling: background, font, and line height for readability */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Header styling: gradient background, padding, centered white text */
+    .header {
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .header h1 { font-size: 2rem; font-weight: 600; } /* Header title size/weight */
+
+    /* Feedback container: centered card with white background and shadow */
+    .feedback-container {
+      max-width: 500px;
+      margin: -40px auto 40px;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    /* Form group: stack label and input vertically with spacing */
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label { font-weight: 600; margin-bottom: 6px; } /* Bold label */
+    /* Input, select, textarea styling: padding, border, rounded corners */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    /* Focus state: highlight input fields */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #74ebd5;
+      box-shadow: 0 0 6px rgba(116,235,213,0.5);
+      outline: none;
+    }
+
+    /* Submit button: full-width gradient button with hover effect */
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      background: linear-gradient(135deg, #96fbc4, #f9f586);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #f9f586, #96fbc4);
+      transform: translateY(-2px);
+    }
+
+    /* Output message: styled confirmation text */
+    .output {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #205a55;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header section with page title -->
+  <div class="header">
+    <h1>Give Your Feedback</h1>
+  </div>
+
+  <!-- Feedback form container -->
+  <div class="feedback-container">
+    <!-- Form to collect name, subject, and message -->
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="fname">Your Name</label><!-- Label for name input -->
+        <input type="text" id="fname" placeholder="Enter your name" required><!-- Name input -->
+      </div>
+      <div class="form-group">
+        <label for="fsubject">Subject</label><!-- Label for subject dropdown -->
+        <select id="fsubject"><!-- Dropdown to choose feedback subject -->
+          <option>Math</option>
+          <option>English</option>
+          <option>Science</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fmessage">Feedback</label><!-- Label for feedback textarea -->
+        <textarea id="fmessage" rows="4" placeholder="Write your feedback here…" required></textarea><!-- Feedback textarea -->
+      </div>
+      <button type="submit" class="btn-submit">Submit Feedback</button><!-- Submit button -->
+    </form>
+    <p id="foutput" class="output"></p><!-- Placeholder for confirmation message -->
+  </div>
+
+  <script>
+    // Handle form submission without reloading the page
+    document.getElementById('feedbackForm').onsubmit = function(e) {
+      e.preventDefault(); // Prevent default form submission
+      // Read and trim the student's name
+      const name = document.getElementById('fname').value.trim();
+      // Read the selected feedback subject
+      const subject = document.getElementById('fsubject').value;
+      // Display a thank-you message in the output paragraph
+      document.getElementById('foutput').innerText =
+        `👍 Thanks, ${name}! Your feedback on ${subject} has been received.`;
+      this.reset(); // Clear the form fields
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Standard HTML5 doctype declaration -->
+<html lang="en">
+<head>
+    <!-- Define character encoding -->
+    <meta charset="UTF-8">
+    <!-- Ensure proper scaling on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title shown on browser tab -->
+    <title>Kids Learning Portal</title>
+    <!-- Import 'Poppins' font for consistent, polished typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- Link external stylesheet for layout, spacing, and visual consistency -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #7a1d0a"> <!-- Set a warm background color to engage young learners -->
+       
+<div class="header">
+    <!-- Welcome to Learning Portal – Display a friendly, static heading at the top -->
+    <h1>Welcome to Kids Learning Portal</h1>
+    <!-- Create Your Profile – Form to collect the student’s name for their profile -->
+    <form id="loginForm">
+        <!-- Create Your Profile – Input field for student to enter their name -->
+        <input type="text" id="name" placeholder="Enter your name">
+        <!-- Create Your Profile – Submit button to save the name and proceed -->
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<!-- Login to Learn – External script handles form submission, saves data to localStorage, validates input, and redirects to dashboard -->
+<script src="script.js"></script>
+</body>
+</html>

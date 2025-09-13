@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- Standard HTML5 doctype declaration -->
+<html lang="en">
+<head>
+  <!-- Define character encoding -->
+  <meta charset="UTF-8">
+  <!-- Title for the Grade 5 quiz page -->
+  <title>Quiz - Kids Learning Portal</title>
+  <!-- Link to external stylesheet for global styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* UI enhancement/Troubleshooting – Style header and footer colors, layout for quiz content */
+    .header { background-color: #fdcb6e; }
+    footer { background-color: #e17055; padding: 10px; }
+    .content { text-align: left; padding: 20px; max-width: 800px; margin: auto; }
+    form p { margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header section with quiz heading -->
+  <div class="header">
+    <h1>Take the Grade 5 Quiz!</h1>
+  </div>
+
+  <!-- Container for the quiz form -->
+  <div class="content">
+    <form id="quizForm">
+      <!-- Question 1: Simple addition -->
+      <p><strong>1. What is 15 + 28?</strong><br>
+        <input type="radio" name="q1" value="a"> 33<br>
+        <input type="radio" name="q1" value="b"> 43<br>
+        <input type="radio" name="q1" value="c"> 45<br>
+      </p>
+
+      <!-- Question 2: Understanding fractions -->
+      <p><strong>2. What is the fraction for half?</strong><br>
+        <input type="radio" name="q2" value="a"> 1/2<br>
+        <input type="radio" name="q2" value="b"> 1/3<br>
+        <input type="radio" name="q2" value="c"> 2/3<br>
+      </p>
+
+      <!-- Question 3: Basic geometry -->
+      <p><strong>3. A triangle has how many sides?</strong><br>
+        <input type="radio" name="q3" value="a"> 2<br>
+        <input type="radio" name="q3" value="b"> 3<br>
+        <input type="radio" name="q3" value="c"> 4<br>
+      </p>
+
+      <!-- Question 4: Grammar – identify a noun -->
+      <p><strong>4. Which of these is a noun?</strong><br>
+        <input type="radio" name="q4" value="a"> quickly<br>
+        <input type="radio" name="q4" value="b"> run<br>
+        <input type="radio" name="q4" value="c"> school<br>
+      </p>
+
+      <!-- Question 5: Grammar – identify a verb -->
+      <p><strong>5. Choose the correct verb:</strong><br>
+        <input type="radio" name="q5" value="a"> apple<br>
+        <input type="radio" name="q5" value="b"> play<br>
+        <input type="radio" name="q5" value="c"> big<br>
+      </p>
+
+      <!-- Question 6: Sentence types -->
+      <p><strong>6. What type of sentence is “Wow! That’s amazing!”?</strong><br>
+        <input type="radio" name="q6" value="a"> Declarative<br>
+        <input type="radio" name="q6" value="b"> Interrogative<br>
+        <input type="radio" name="q6" value="c"> Exclamatory<br>
+      </p>
+
+      <!-- Question 7: Science – plant anatomy -->
+      <p><strong>7. What part of the plant makes food?</strong><br>
+        <input type="radio" name="q7" value="a"> Root<br>
+        <input type="radio" name="q7" value="b"> Leaf<br>
+        <input type="radio" name="q7" value="c"> Stem<br>
+      </p>
+
+      <!-- Question 8: Science – boiling point of water -->
+      <p><strong>8. Water boils at what temperature?</strong><br>
+        <input type="radio" name="q8" value="a"> 0°C<br>
+        <input type="radio" name="q8" value="b"> 50°C<br>
+        <input type="radio" name="q8" value="c"> 100°C<br>
+      </p>
+
+      <!-- Question 9: Science – respiration gas -->
+      <p><strong>9. Which gas do we breathe in?</strong><br>
+        <input type="radio" name="q9" value="a"> Carbon dioxide<br>
+        <input type="radio" name="q9" value="b"> Oxygen<br>
+        <input type="radio" name="q9" value="c"> Nitrogen<br>
+      </p>
+
+      <!-- Question 10: Science – astronomy -->
+      <p><strong>10. The Sun is a:</strong><br>
+        <input type="radio" name="q10" value="a"> Planet<br>
+        <input type="radio" name="q10" value="b"> Star<br>
+        <input type="radio" name="q10" value="c"> Moon<br>
+      </p>
+
+      <!-- Submit button for the quiz form -->
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Placeholder to display the quiz result -->
+    <p id="result" style="font-weight: bold; margin-top: 20px;"></p>
+  </div>
+
+  <!-- Motivational footer message -->
+  <footer>You're doing great! Keep practicing.</footer>
+
+  <!-- Script to calculate and display the quiz score -->
+  <script>
+    document.getElementById('quizForm').onsubmit = function(e) {
+      e.preventDefault(); // Prevent page reload on submit
+      let score = 0;
+      // Correct answers key
+      const answers = {
+        q1: 'b',
+        q2: 'a',
+        q3: 'b',
+        q4: 'c',
+        q5: 'b',
+        q6: 'c',
+        q7: 'b',
+        q8: 'c',
+        q9: 'b',
+        q10: 'b'
+      };
+      // Iterate through each question to tally the score
+      for (let i = 1; i <= 10; i++) {
+        const q = document.querySelector('input[name="q'+i+'"]:checked');
+        if (q && q.value === answers['q'+i]) score++;
+      }
+      // Display the result message
+      document.getElementById('result').innerText = `You scored ${score} out of 10!`;
+    };
+  </script>
+</body>
+</html>
